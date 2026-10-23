@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ende... oder auch nicht</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background-color: #000;
+    font-family: 'Courier New', monospace;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: #f00;
+  }
+
+  .greeting {
+    text-align: center;
+    padding: 30px;
+    border: 3px solid #f00;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 20px #f00;
+    animation: flicker 1.5s infinite alternate;
+  }
+
+  @keyframes flicker {
+    0% { opacity: 1; }
+    100% { opacity: 0.3; }
+  }
+
+  h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #f00, 0 0 20px #f00;
+  }
+
+  p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+  }
+
+  button {
+    padding: 15px 30px;
+    font-size: 1em;
+    border: none;
+    border-radius: 10px;
+    background-color: #555;
+    color: #f00;
+    cursor: pointer;
+    box-shadow: 0 0 20px #f00 inset, 0 0 30px #f00;
+    transition: all 0.3s;
+  }
+
+  button:hover {
+    background-color: #f00;
+    color: #fff;
+    box-shadow: 0 0 40px #f00 inset, 0 0 50px #f00;
+    transform: scale(1.05);
+  }
+
+  /* Blinker für den Text */
+  .warning {
+    font-size: 2em;
+    margin-top: 20px;
+    animation: blinker 1s step-start infinite;
+  }
+
+  @keyframes blinker {
+    50% { opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="greeting">
+  <h1>Du hast es wirklich geschafft... </h1>
+  <p class="warning">Aber wie unnötig du hättest bei der Blauenpille nur bis um 3 Uhr Warten müssen!</p>
+  <p>Hier endet alles... oder auch nicht. Wer weiss das schon?</p>
+  <button onclick="window.location.href='TheGame.html'">Zurück zum Spiel</button>
+</div>
+
+</body>
+</html>

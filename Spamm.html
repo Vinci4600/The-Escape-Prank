@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100% Gratis</title>
+    <link rel="stylesheet" href="./Components/Styles/style.css">
+</head>
+<body class="bodyy">
+    <div class="login-box">
+    <h1>🚨 ACHTUNG 🚨</h1>
+<h2>DU BIST DER 1.000.000 BESUCHER!!!</h2>
+
+<p>
+  Herzlichen Glückwunsch!!!  
+  Klicke <a href="#" onclick="spam()">HIER</a> um NICHTS zu gewinnen!!!
+</p>
+
+<button class="button7" onclick="spam()">JETZT KLICKEN!!!</button>
+
+<div class="popup" id="popup">
+  ⚠️ Dein Computer ist DEFINITIV kaputt ⚠️<br><br>
+  <button class="button7" onclick="closePopup()">Schließen (funktioniert nicht)</button>
+</div>
+
+<div class="fly" style="left:10%"><img src="./Components/Bilder/Schrott.jpeg" width="200"></div>
+<div class="fly" style="left:40%"><div class="boxi">Viel Spass mit dem</div></div>
+<div class="fly" style="left:70%">Sorry Leider Noch nicht Fertig</div>
+<div class="boxi"><h3>Tja das passiert hald wenn man mir nicht Vertraut</h3>
+<h4>Aber ich Gebe dir noch eine Chance</h4>
+<h4>Rot oder Blau</h4>
+<a href="Wahrheit.html"><button style="background-color: red; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Rot</button></a>
+
+<!-- Blauer Button -->
+<a href="DieblauePille.html"><button style="background-color: blue; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Blau</button></a>
+</div>
+
+
+</div>
+
+<script>
+  function spam() {
+    alert("VIREN GEFUNDEN!!! (vielleicht)");
+    window.scrollTo({
+      top: Math.random() * document.body.scrollHeight,
+      behavior: "smooth"
+    });
+  }
+
+  function closePopup() {
+    alert("HAHA NEIN");
+  }
+
+  setInterval(() => {
+    document.title = "!!! GRATIS !!! " + Math.floor(Math.random() * 9999);
+  }, 500);
+</script>
+    
+</body>
+</html>

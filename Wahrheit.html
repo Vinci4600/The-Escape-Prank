@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wahrheit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="body3">
+    <script> function qrPopup() {
+            alert("Tipp gehe auf die Starter seite und Klicke auf Datenschutzt");
+        }
+
+    </script>
+
+    <canvas id="matrix-left" class="matrix"></canvas>
+    <canvas id="matrix-right" class="matrix"></canvas>
+    <div class="content">
+        <div class="login-box">
+            <h1>Du hast die rote Pille gewählt.</h1>
+
+            <p id="qr-code" onclick="qrPopup()">Es gibt kein Zurück.
+
+                Was du gleich sehen wirst, ist nicht schön, nicht logisch und ganz sicher nicht nötig.
+                Die Ordnung zerfällt, der Scrollbalken lügt dich an und die Buttons haben ihren eigenen Willen.
+
+                Du wolltest wissen, wie tief das Kaninchenloch geht.
+                Jetzt weißt du es.
+
+                Die Seite wird nicht besser.
+                Sie wird nur ehrlicher.</p>
+
+            <h2>Willkommen im Chaos.</h2>
+            <video width="400" height="480" controls>
+                <source src="./Components/Bilder/TheGame.html - SQ1 - Visual Studio Code 2026-01-14 09-52-34.mp4" type="video/mp4">
+
+            </video>
+
+            <button class="blauer-button"  onclick="warten()">Weitere Wahrheiten</button>
+            <script>function warten() {
+                    alert("Warte bis um 12 Uhr das ist der preis")
+                }</script>
+            
+            <a href="TheGame.html"><button class="blauer-button" type="button">Zurück zum Start</button></a>
+
+            <div id="container">
+             
+
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+    <script>const now = new Date();
+        const hour = now.getHours();
+
+        if (hour === 12) {
+            const qr = document.getElementById("qr-code");
+
+            if (qr) {
+                const replacement = document.createElement("div");
+                replacement.textContent = "Die Lösung war nie für den Tag gedacht. Lösung Einstellungen Drücken auf der Starterseite!";
+                replacement.style.fontFamily = "monospace";
+                replacement.style.color = "#0f0";
+                replacement.style.textAlign = "center";
+                replacement.style.marginTop = "20px";
+                replacement.style.opacity = "0.8";
+
+                qr.replaceWith(replacement);
+            }
+        }
+
+    </script>
+
+    <script>
+        document.getElementById('btnnnn').addEventListener('click', () => {
+            console.log('Button geklickt');
+        });
+
+        document.getElementById('container').addEventListener('click', () => {
+            console.log('Div geklickt');
+        });
+    </script>
+
+    <script>
+        function Version3() {
+
+            document.getElementById("hiddenen").style.display = "block";
+            alert("hello")
+
+        }</script>
+    
+</body>
+
+</html>

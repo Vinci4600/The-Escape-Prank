@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Game</title>
+    <link rel="stylesheet" href="./Components/Styles/style.css">
+    
+</head>
+<body>
+    
+        <div class="login-box">
+<h1> Willkommen auf dem Home Screen des Spiels  </h1>
+<h2>Deine Aufgabe ist es, in die<a href="Ziel.html" onclick="Hoffnung(); return false;" class="unsichtbar-link"> Einstellungen</a> zu gelangen und dich abzumelden.
+Für Hindernisse garantieren wir.
+Viel Spaß!!
+<a href="Spamm.html" onclick="Hoffnung(); return false;" class="unsichtbar-link">
+          Weiterr
+        </a>
+
+</h2>
+<br>
+
+<script>
+    function myFunction3(){
+  document.getElementById("qw").style.backgroundColor ="red";
+  document.getElementById("hidden").style.display = "block";
+  alert("So einfach mache ich es dir nicht wie wäre es mit einem schönen bild");
+
+}
+function myFunction4(){
+  document.getElementById("ab").style.backgroundColor ="green";
+  document.getElementById("hiddenn").style.display = "block";
+  alert("Bitte warten");
+
+}
+
+
+
+
+</script>
+<script>
+</script>
+
+
+
+<button id="qw" type="button" onclick="myFunction3()">Abmelden</button>
+<marquee scrollamount="100"><img id="hidden" src="./Components/Bilder/kaffebause.png" style="display:none; width:200px;"></marquee>
+<button id ="ab" type="button" onclick="myFunction4()">Einstellungen</button>
+<img  id="hiddenn" src="./Components/Bilder/Spinner@1x-1.0s-200px-200px.gif" alt="Bild" style="display:none; width:200px;">
+
+
+  
+
+
+
+<script>
+  function Version2(){
+  document.getElementById("Vs2").style.backgroundColor ="red";
+  document.getElementById("hiddennn").style.display = "block";
+  alert("Nächster Knopf");
+
+}
+</script>
+<button id="Vs2" type="button" onclick="Version2()">Knopf1</button>
+<button id ="hiddennn"onclick="window.location.href='Rätsel.html'" type="button" style="display:none ;">Knopf2</button>
+
+
+</script>
+
+
+
+<div class="boxi"><h3>Hallo ich bin Boxi </h3> <br> vertrau mir nimm den 5 Knopf</div>
+
+<button id ="hidden" type="button" onclick="window.location.href='Scrollchaos.html'">Knopf 5 </button>
+<button type="button" onclick="window.location.href='Mathe.html'">Knopf 6</button>
+<button id ="nerfig" type="button" onclick="Baustelle()">Knopf 7 </button>
+<button id ="nerfig" type="button" onclick="Baustelle()">Knopf 8 </button>
+<button id ="nerfig" type="button" onclick="Baustelle()">Knopf 9 </button>
+<button id ="nerfig" type="button" onclick="Baustelle()">Knopf 10 </button>
+<a href="Unnötigesziel.html"><button id="fliehButton">Datenschutzt</button></a>
+
+
+</div>
+
+<script>const button = document.getElementById("fliehButton");
+
+  button.addEventListener("mouseover", () => {
+    const maxX = window.innerWidth - button.offsetWidth;
+    const maxY = window.innerHeight - button.offsetHeight;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    button.style.left = x + "px";
+    button.style.top = y + "px";
+  });
+  function scrollChaos() {
+    window.scrollTo({
+      top: Math.random() * document.body.scrollHeight,
+      behavior: "smooth"
+    });}
+    function Baustelle(){
+  alert("Sorry hier  arbeiten wir noch")
+}
+
+ 
+    </script>
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>

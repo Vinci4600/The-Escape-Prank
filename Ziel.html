@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Feierliches Ende</title>
+<link rel="stylesheet" href="style.css">
+<style>
+
+  /* Hintergrund mit Farbverlauf und Animation */
+  body {
+    margin: 0;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(270deg, #ff0066, #00ffff, #ffff00, #ff00ff);
+    background-size: 800% 800%;
+    animation: gradientShift 15s ease infinite;
+    color: white;
+    overflow: hidden;
+  }
+
+  @keyframes gradientShift {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+  }
+
+  /* Container für den Text und Effekte */
+  .party-container {
+    text-align: center;
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(255,255,255,0.3);
+    animation: glow 2s alternate infinite;
+  }
+
+  @keyframes glow {
+    from { box-shadow: 0 0 20px rgba(255,255,255,0.2); }
+    to { box-shadow: 0 0 40px rgba(255,255,255,0.8); }
+  }
+
+  h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #fff, 0 0 20px #ff0, 0 0 30px #f0f;
+  }
+
+  p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    text-shadow: 0 0 5px #fff, 0 0 10px #0ff;
+  }
+
+  /* Partikeleffekte: bunte Kreise, die aufpoppen */
+  .confetti {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--color);
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: fall 4s linear forwards;
+  }
+
+  @keyframes fall {
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="party-container">
+  <h1>Herzlichen Glückwunsch du hast Level 1 Geschaft</h1>
+  <div class="Boxi"><h2>Hallo ich bin es Boxi!</h2><p> Ich habe eien neuen Job GEFUNDEN ich bin Fremden führer für langsame Leute.</p></div>
+  <a href="TheGame.html"><button onclick="location.reload()" style="padding:15px 30px; font-size:1em; border:none; border-radius:10px; background-color:#fff; color:#333; cursor:pointer; box-shadow:0 0 10px #fff;">Erneutversuchen</button></a>
+</div>
+
+<!-- Confetti Effekt -->
+<div class="confetti" id="confetti"></div>
+
+<script>
+  // Funktion, um Konfetti zu generieren
+  function createConfetti() {
+    const confettiContainer = document.getElementById('confetti');
+    const colors = ['#ff0', '#f0f', '#0ff', '#ff6600', '#66ff00', '#00ffff', '#ff00ff'];
+    for (let i=0; i<100; i++) {
+      const confetti = document.createElement('div');
+      confetti.className = 'confetti-piece';
+      confetti.style.setProperty('--color', colors[Math.floor(Math.random() * colors.length)]);
+      confetti.style.left = Math.random() * 100 + '%';
+      confetti.style.top = '-10px';
+      confetti.style.transform = 'rotate(' + Math.random()*360 + 'deg)';
+      confetti.style.width = confetti.style.height = (Math.random()*8+2) + 'px';
+      confetti.style.opacity = Math.random();
+      confetti.style.animationDuration = (2 + Math.random()*2) + 's';
+
+      // Zufällige Animation
+      confetti.style.setProperty('animation', `fall ${confetti.style.animationDuration} linear forwards`);
+      
+      confettiContainer.appendChild(confetti);
+    }
+  }
+
+  createConfetti();
+
+  // Optional: Alle 10 Sekunden neue Confetti
+  setInterval(createConfetti, 10000);
+</script>
+
+</body>
+</html>
