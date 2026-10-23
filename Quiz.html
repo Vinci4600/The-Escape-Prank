@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Das mega wichtige Quiz</title>
+    <style>
+        :root {
+            font-family: "Trebuchet MS", Arial, sans-serif;
+            color: #fff;
+            background: #24105c;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+            background:
+                radial-gradient(ellipse at 15% 10%, #6339b9 0, transparent 38%),
+                linear-gradient(145deg, #24105c, #111c55);
+        }
+
+        main {
+            width: min(100%, 760px);
+            padding: clamp(22px, 5vw, 42px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+            background: rgba(21, 16, 61, 0.94);
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
+
+        .label {
+            color: #ffe36e;
+            font-size: 0.9rem;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 10px 0 24px;
+            font-size: clamp(2rem, 6vw, 3rem);
+        }
+
+        .question {
+            margin: 0 auto 26px;
+            font-size: clamp(1.25rem, 4vw, 1.8rem);
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .answers {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .answer {
+            min-height: 78px;
+            padding: 16px;
+            border: 0;
+            border-radius: 14px;
+            color: #fff;
+            cursor: pointer;
+            font: inherit;
+            font-size: 1.05rem;
+            font-weight: 800;
+            transition: filter 150ms ease, transform 150ms ease;
+        }
+
+        .answer:hover:not(:disabled) {
+            filter: brightness(1.13);
+            transform: translateY(-2px);
+        }
+
+        .answer:focus-visible,
+        .back-link:focus-visible {
+            outline: 3px solid #fff;
+            outline-offset: 3px;
+        }
+
+        .red { background: #ed4264; }
+        .blue { background: #3478f6; }
+        .yellow { background: #e6a900; color: #211600; }
+        .green { background: #19a979; }
+
+        #result {
+            min-height: 1.6em;
+            margin: 22px 0 10px;
+            font-size: 1.2rem;
+            font-weight: 800;
+        }
+
+        #meme {
+            display: none;
+            width: min(100%, 420px);
+            margin: 18px auto 0;
+            border: 5px solid #ffe36e;
+            border-radius: 12px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 24px;
+            color: #ded3ff;
+        }
+
+        @media (max-width: 520px) {
+            .answers {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="label">Knopf 7 · Das ultra wichtige Quiz</div>
+        <h1>Bereit für Ruhm?</h1>
+        <p class="question">Was hilft laut Boxis weltberühmter Wissenschaft am besten gegen Arbeitswut?</p>
+
+        <div class="answers" aria-label="Antwortmöglichkeiten">
+            <button class="answer red" type="button" data-correct="false" data-destination="Spamm.html">Den Drucker anschreien</button>
+            <button class="answer blue" type="button" data-correct="true" data-destination="Scrollchaos.html">Eine Kaffeepause</button>
+            <button class="answer yellow" type="button" data-correct="false" data-destination="Rätsel.html">Dem Montag davonlaufen</button>
+            <button class="answer green" type="button" data-correct="false" data-destination="DieblauePille.html">Den Toaster befördern</button>
+        </div>
+
+        <p id="result" role="status" aria-live="polite"></p>
+        <img id="meme" src="./Components/Bilder/kaffebause.png" alt="Arbeitswut ist eine psychische Störung, welche mit einer Kaffeepause leicht zu beheben ist.">
+        <a class="back-link" href="Rätsel.html">Zurück zum Spiel</a>
+    </main>
+
+    <script>
+        const answerButtons = document.querySelectorAll(".answer");
+        const result = document.getElementById("result");
+        const meme = document.getElementById("meme");
+
+        answerButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                const isCorrect = button.dataset.correct === "true";
+                result.textContent = isCorrect
+                    ? "Richtig! Boxi verleiht dir den goldenen Kaffeelöffel. ☕"
+                    : "Leider falsch. Boxi ist enttäuscht – und braucht jetzt eine Kaffeepause.";
+                result.style.color = isCorrect ? "#7dffc1" : "#ffb3c0";
+                meme.style.display = "block";
+                answerButtons.forEach((answerButton) => {
+                    answerButton.disabled = true;
+                });
+                window.setTimeout(() => {
+                    window.location.href = button.dataset.destination;
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+</html>

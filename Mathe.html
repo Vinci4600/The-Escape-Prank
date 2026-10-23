@@ -133,8 +133,8 @@
 <body>
     <main>
         <div class="tag">Knopf 6 · Kopfrechnen</div>
-        <h1>Die unmögliche Aufgabe</h1>
-        <p>Berechne das Ergebnis. Aber beeil dich: Die Zahlen ändern sich immer wieder!</p>
+        <h1>Löse die Aufgabe</h1>
+        <p>Berechne das Ergebnis.</p>
         <div id="equation" aria-live="polite" aria-atomic="true"></div>
 
         <form id="answer-form">
@@ -145,7 +145,7 @@
             <p id="message" role="status"></p>
         </form>
 
-        <a class="back-link" href="TheGame.html">Zurück zum Spiel</a>
+        
     </main>
 
     <script>
@@ -154,28 +154,43 @@
         const answer = document.getElementById("answer");
         const message = document.getElementById("message");
 
-        function changeNumbers() {
-            const first = Math.floor(Math.random() * 90) + 10;
-            const second = Math.floor(Math.random() * 90) + 10;
-            const third = Math.floor(Math.random() * 20) + 2;
-            equation.textContent = `${first} × ${third} + ${second} = ?`;
+        const numbers = [
+            Math.floor(Math.random() * 90) + 10,
+            Math.floor(Math.random() * 20) + 2,
+            Math.floor(Math.random() * 90) + 10
+        ];
+
+        function showEquation() {
+            equation.textContent = `${numbers[0]} × ${numbers[1]} + ${numbers[2]} = ?`;
         }
 
-        changeNumbers();
-        window.setInterval(changeNumbers, 1500);
+        function changeOneNumber() {
+            const index = Math.floor(Math.random() * numbers.length);
+            const minimum = index === 1 ? 2 : 10;
+            const maximum = index === 1 ? 21 : 99;
+            const direction = numbers[index] === minimum ? 1
+                : numbers[index] === maximum ? -1
+                : Math.random() < 0.5 ? -1 : 1;
+
+            numbers[index] += direction;
+            showEquation();
+        }
+
+        showEquation();
+        window.setInterval(changeOneNumber, 1500);
 
         form.addEventListener("submit", (event) => {
             event.preventDefault();
 
             if (answer.value.trim() === "") {
-                window.location.href = "TheGame.html";
+                window.location.href = "Quiz.html";
                 return;
             }
 
             message.textContent = "Falsch! Und jetzt sind die Zahlen schon wieder anders.";
             answer.value = "";
             answer.focus();
-            changeNumbers();
+            changeOneNumber();
         });
     </script>
 </body>
